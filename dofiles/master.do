@@ -11,15 +11,16 @@ clear
 
 ********************************************************************************
 
-global root "H:\CIN-SI"
+global root "H:\Prosjekter\Tor Åge Myklebust\CIN2021-SI\Artikkel 1\cancer-survival-measures\"
 				
-include "$root\dofiles\global_definitions.do"
+include "$root\dofiles\settings\global_definitions.do"
 
 ********************************************************************************
 
 // Data-management
-do "$root\prod\modelling\dofiles\data_prep_internal.do" 
-do "$root\prod\modelling\dofiles\data_prep_external.do" 
+
+// do "$root\dofiles\data_prep\data_prep_internal.do" 
+do "$root\dofiles\data_prep\data_prep.do" 
 
 // Run model-selection algorithm to estimate FP-models
 do "$root\prod\modelling\dofiles\\estimation.do"  
@@ -33,17 +34,3 @@ do "$root\prod\modelling\dofiles\\predictions_cmcond_stratified_site_imputation.
 
 // Combine estimates using Rubin's rules and collect them in separate files
 do "$root\prod\modelling\dofiles\\combine_imputed_estimates.do" 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
