@@ -1,38 +1,34 @@
+
+********************************************************************************
+
 version 17
 
-adopath + "E:\users\BAA\CIN2021-SI\" // sysresources 
 which sysresources
 findfile sysresources.jar  
 
-global root "H:\CIN-SI"
-include "$root\dofiles\global_definitions.do"
-
-
-cd "$root\log"
-
-local dofiles "$root\dofiles\"
+cd "$root/results/log"
  
-local exefile R:\Stata17\StataMP-64.exe 
-local dofile `dofiles'\predict.do
+local dofile "$root/dofiles/prediction/predict.do"
 
-confirm file `exefile'
+confirm file $StataExe
 confirm file `dofile'
 
 assert $N_imputations > 0
 
 local args \`site' \`i' 
 
-qui foreach site of numlist 1/23 {
-	
+qui foreach site of numlist $siteList {
+
 	forvalues i=1(1)$N_imputations {
 		
 		sleep `=10*1000'
-		
 	
 		while 1 {
 			
 			sysresources 
 
+			//Start new session if enough resources
+			
 			if ( r(pctfreemem) < 25 | r(cpuload) > 0.75 ) {
 				
 				sleep `=30*1000' 			
@@ -41,7 +37,7 @@ qui foreach site of numlist 1/23 {
 			
 			else {
 					
-				winexec `exefile' /e do `dofile' `args' 
+				winexec $StataExe /e do `dofile' `args' 
 				
 				noi di "started site `site' and imputation `i': " c(current_time)
 				
@@ -51,3 +47,4 @@ qui foreach site of numlist 1/23 {
 	}
 }
 
+********************************************************************************

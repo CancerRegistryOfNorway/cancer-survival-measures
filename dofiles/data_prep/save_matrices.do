@@ -11,7 +11,7 @@ foreach strata of local levels_strata {
 	
 		clear
 		svmat Ryear_period_df`df'_strata`strata', names(col)
-		save "$root\data\Ryear_df`df'_strata`strata'.dta", replace
+		save "$root/data/Ryear_df`df'_strata`strata'.dta", replace
 	}
 }
 

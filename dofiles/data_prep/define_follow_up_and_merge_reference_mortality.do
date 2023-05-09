@@ -4,7 +4,7 @@
 stset time , 				///
 	fail(death) 			///
 	origin(time diag_date) 	///
-	enter(time d(1jan2017)) /// MACRO ?
+	enter(time $stsetEnter) /// 
 	exit(time exittime) 	///
 	scale(365.25) 			///
 	id(SID_surv)                            

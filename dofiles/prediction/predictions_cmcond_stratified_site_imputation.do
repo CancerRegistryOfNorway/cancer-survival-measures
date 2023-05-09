@@ -1,42 +1,46 @@
+
+********************************************************************************
+
 clear all
 
 ********************************************************************************
 
 // Define indicators for stage and at-arguments for models
 
-include "$root\dofiles\define_stage_at_by_site_group_scalars.do" 
+local defdir "$root/dofiles/predictions/stage_contrast_definitions"
+include "`defdir'/define_stage_at_by_site_group_scalars.do" 
 
-run "$root\dofiles\global_knotlists.do"
+run "$root/dofiles/definitions/model/global_knotlists.do"
 		
 ********************************************************************************							  
 
-foreach site of numlist 1/23 {
+foreach site of numlist $siteList {
 	
-	do "$root\dofiles\data_prep\define_lifetables.do" `site'
+	do "$root/dofiles/data_prep/define_lifetables.do" `site'
 		
-	if( inlist(`site', 11, 12) ){
+	if( inlist(`site', 11, 12) ){ /* C50, C53 */
 		
-		local site_group == 2
+		local site_group = 2
 	}
 	
-	else if( inlist(`site', 19) ){ 
+	else if( inlist(`site', 19) ){ /* C73 */
 	
-		local site_group == 3
+		local site_group = 3
 	}
 	
-	else if( inlist(`site', 21, 22, 23) ){
+	else if( inlist(`site', 21, 22, 23) ){ /* C81, C82-86, C96, C91-95 */
 		
-		local site_group == 4
+		local site_group = 4
 	}
 	
 	else{
 		
-		local site_group == 1
+		local site_group = 1 /* Other sites */
 	}
 			
 	forvalues i=1(1)$N_imputations {
 
-		use "$root\est_results\models_converged", clear
+		use "$root/results/estimation/tempfiles/models_converged.dta", clear
 
 		split modelname, p("_") gen(m)
 		replace m2 = usubinstr(m2,"site","",.) 
@@ -46,7 +50,6 @@ foreach site of numlist 1/23 {
 		rename (m2 m3) (site variant)
 
 		keep if imputation == `i'
-
 		bysort site (variant): keep if _n == 1
 
 		keep if site == `site'
@@ -57,7 +60,7 @@ foreach site of numlist 1/23 {
 		est use "`sterfile'"	
 		est replay
 
-		use "$root\dta\analysisfile_imputed.dta", clear 
+		use "$root/results/analysisfile_imputed.dta", clear 
 
 		mi extract `i', clear
 
@@ -68,13 +71,11 @@ foreach site of numlist 1/23 {
 		su age, detail
 		local age = `r(p50)'
 
-		// adopath ++ "$root\programs" //Path to stpm2cmcond ado-file
-
 		forvalues df = 2(1)4 {
 			
 			preserve
 			
-				use "$root\matrices\Ryear_period_df`df'_strata`strata'.dta", clear				
+				use "$root/prediction/tempfiles/Ryear_period_df`df'_strata`strata'.dta", clear				
 				mkmat c?, matrix(Ryear`df')
 				
 			restore
@@ -89,7 +90,7 @@ foreach site of numlist 1/23 {
 		rcsgen, scalar(`age') gen(e) ///
 			knots(${knotslist_period_df2_strata`strata'}) rmatrix(Ryear2)
 	
-		do "$root\dofiles\stpm2cmcond.do" `site_group'
+		do "$root/dofiles/prediction/stpm2cmcond.do" `site_group'
 
 		keep if _n == 1
 		keep crc* cro*
@@ -104,7 +105,7 @@ foreach site of numlist 1/23 {
 
 clear
 
-foreach site of numlist 1/23 {
+foreach site of numlist $siteList {
 
 	forvalues i=1(1)$N_imputations {
 
@@ -113,6 +114,6 @@ foreach site of numlist 1/23 {
 }
 
 compress
-save "$root\tempfiles\predictions_stpm2cmcond.dta", replace	
+save "$root/results/tempfiles/predictions_stpm2cmcond.dta", replace	
 
 ********************************************************************************	

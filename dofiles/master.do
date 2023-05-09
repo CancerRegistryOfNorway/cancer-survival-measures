@@ -11,26 +11,30 @@ clear
 
 ********************************************************************************
 
-global root "H:\Prosjekter\Tor Åge Myklebust\CIN2021-SI\Artikkel 1\cancer-survival-measures\"
+global root "H:/Prosjekter/Tor Åge Myklebust/CIN2021-SI/Artikkel 1/cancer-survival-measures/"
 				
-include "$root\dofiles\settings\global_definitions.do"
+do "$root/dofiles/settings/dependencies.do"				
+				
+include "$root/dofiles/settings/global_definitions.do"
 
 ********************************************************************************
 
 // Data-management
 
-// do "$root\dofiles\data_prep\data_prep_internal.do" 
-do "$root\dofiles\data_prep\data_prep.do" 
+// do "$root/dofiles/data_prep/data_prep_internal.do" 
+do "$root/dofiles/data_prep/data_prep.do" 
 
 // Run model-selection algorithm to estimate FP-models
-do "$root\prod\modelling\dofiles\\estimation.do"  
+do "$root/dofiles/estimation.do"  
 
 // Predict net survival, crude probabilities and lifeyears lost by subgroups
 // Code starts multiple parallell Stata-sessions to reduce computation time
-do "$root\prod\modelling\dofiles\\parallell_sessions.do"
+do "$root/dofiles/prediction/parallell_sessions.do"
 
 // Predict conditional crude probabilities using undocumented command stpm2cmcond 
-do "$root\prod\modelling\dofiles\\predictions_cmcond_stratified_site_imputation.do" 
+do "$root/dofiles/prediction/predictions_cmcond_stratified_site_imputation.do" 
 
 // Combine estimates using Rubin's rules and collect them in separate files
-do "$root\prod\modelling\dofiles\\combine_imputed_estimates.do" 
+do "$root/dofiles/data_prep/combine_imputed_estimates.do" 
+
+********************************************************************************

@@ -39,6 +39,6 @@ do "`data_prep'/save_matrices.do" `levels_strata'
 
 export_globals , 		///
 	pattern(knotslist*) ///
-	newfilename("$root\dofiles\global_knotlists.do")
+	newfilename("$root/dofiles/estimation/definitions/models/global_knotlists.do")
 
 ********************************************************************************

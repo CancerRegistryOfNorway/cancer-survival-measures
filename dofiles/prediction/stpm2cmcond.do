@@ -3,13 +3,15 @@ args site_group
 
 scalar at_site_groups = at_site_group_`site_group'
 
+local defdir "$root/dofiles/prediction/stage_contrast_definitions"
+
 ********************************************************************************
 
 if(`site_group' == 1) {
 	
 	local stage_group "1 2 3"
 	
-	include "$root\dofiles\define_at_site_group`site_group'.do" /*TESTES!!*/
+	include "`defdir'/define_at_site_group`site_group'.do" 
 	
 }
 
@@ -19,7 +21,7 @@ else if(`site_group' == 2) {
 	
 	local stage_group "4 5 6 7"
 
-	include "$root\dofiles\define_at_site_group`site_group'.do" /*TESTES!!*/
+	include "`defdir'/define_at_site_group`site_group'.do" 
 }
 
 ********************************************************************************
@@ -28,7 +30,7 @@ else if(`site_group' == 3) {
 	
 	local stage_group "9 10"
 
-	include "$root\dofiles\define_at_site_group`site_group'.do" /*TESTES!!*/
+	include "`defdir'/define_at_site_group`site_group'.do" 
 }
 
 ********************************************************************************
@@ -37,7 +39,7 @@ else if(`site_group' == 4) {
 	
 	local stage_group "8"
 
-	include "$root\dofiles\define_at_site_group`site_group'.do" /*TESTES!!*/
+	include "`defdir'/define_at_site_group`site_group'.do" 
 }
 
 ********************************************************************************
@@ -72,7 +74,7 @@ foreach sex of numlist 0/1 {
 				at(`=scalar(at_site_groups)')
 				mergeby(_year sex _age) 
 				diagage(`age') 
-				diagyear(2011) /* MACRO ?? */
+				diagyear($stpm2cmcondDiagyear)
 				sex(`sex') 
 				tcond(`k') 
 				stub(cm) 

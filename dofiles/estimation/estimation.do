@@ -5,21 +5,20 @@
 
 //Defining frame to store information from model estimation
 capt frame drop modelres
-frame create modelres str100 modelname str1000 cmdline convergence strL sterfilename imputation
-
+frame create modelres ///
+	str100 modelname str1000 cmdline convergence strL sterfilename imputation
 
 //Specifying stage-groups
-include "$root\dofiles\stagegroup_def.do" 
+include "$root/dofiles/estimation/definitions/stagegroup_def.do" 
 
 //Specifying different interaction terms
-include "$root\dofiles\interaction_variants.do" 
+include "$root/dofiles/estimation/definitions/interaction_variants.do" 
 
 local n_cat : word count \`stageVariant\`group''
 local last_stage : word `n_cat' of \`stageVariant\`group''
 
 //Specify model variants
-include "$root\dofiles\model_variants.do" 
-
+include "$root/dofiles/estimation/definitions/model_variants.do" 
 
 mata: st_local("N_variant", ///
 	strofreal(rows(st_dir("local", "macro", "variant*" ))))
@@ -36,11 +35,10 @@ foreach group of numlist 1(1)`N_stageGroup' {
 		else {
 			local sex sex
 		}
-
 		
 		forvalues i=1(1)$N_imputations {
 			
-			use "$root\dta\analysisfile_imputed.dta", clear 
+			use "$root/data/datafile.dta", clear 
 
 			keep if site23 == `site'
 
@@ -60,24 +58,23 @@ foreach group of numlist 1(1)`N_stageGroup' {
 					tempfile ster
 					est save `ster'
 									
-					frame post modelres ("`modelname'") ("`e(cmdline)'") (`e(converged)') (fileread("`ster'")) (`i')
-								
+					frame post modelres ("`modelname'") ("`e(cmdline)'") 	///
+						(`e(converged)') (fileread("`ster'")) (`i')			
 				}
 				
 				else { 
 
-					frame post modelres ("`modelname'") ("No convergence") (0) (" ") (`i')					
-				
+					frame post modelres ("`modelname'") ("No convergence") 	///
+						(0) (" ") (`i')					
 				}
-
 			}
 		}
 	}
 }
 
-frame modelres: save "$root\est_results\\models_all", replace 
+frame modelres: save "$root/results/estimation/models_all.dta", replace 
 
-use "$root\est_results\\models_all", clear
+use "$root/results/estimation/models_all.dta", clear
 
 split modelname, p("_") gen(m)
 replace m2 = usubinstr(m2,"site","",.) 
@@ -97,4 +94,6 @@ bysort site imputation (variant): keep if _n == 1
 
 drop m? site variant totvariant
 
-save "$root\est_results\models_converged", replace  
+save "$root/results/estimation/models_converged.dta", replace  
+
+********************************************************************************

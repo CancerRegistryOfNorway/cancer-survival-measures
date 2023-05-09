@@ -7,7 +7,7 @@ args levels_strata
 
 gen period_temp = ( _t0 == 0 ) 
 
-forvalues i=1(1)23 {
+forvalues i = $siteList {
 
 	preserve
 
@@ -18,8 +18,7 @@ forvalues i=1(1)23 {
 		mi register imputed stage
 
 		mi impute mlogit stage rcs4_age? cum_haz _d i.period_temp i.sex , ///
-			rseed(76984) /// MACRO??
-			add($N_imputations) augment noisily
+			rseed($seed) add($N_imputations) augment noisily
 
 		tempfile f`i'
 		save `f`i''
@@ -32,7 +31,7 @@ forvalues i=1(1)23 {
 
 clear 
 
-forvalues i=1(1)23 {
+forvalues i=$siteList {
 	
 	append using `f`i''
 }
