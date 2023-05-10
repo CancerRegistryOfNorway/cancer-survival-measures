@@ -7,12 +7,12 @@ set type double
 set varabbrev off
 set matastrict on 
 
-adopath + "$root/ado/" /*stpm2cmcond , sysresources */
+adopath ++ "$root/ado/" /*stpm2cmcond , sysresources */
 
 ********************************************************************************
 
-global StataExe R:\Stata17\StataMP-64.exe
-
+//global StataExe R:\Stata17\StataMP-64.exe
+global StataExe S:\Prog64\Stata\Stata17MP\StataMP-64.exe
 global adjusted_lifetable "$root\lifetables\CRN_lifetable_Norway_2021_national_general_population_calibrated"
 
 ********************************************************************************
