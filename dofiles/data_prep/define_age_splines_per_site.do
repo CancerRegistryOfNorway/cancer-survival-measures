@@ -1,7 +1,7 @@
 
 ********************************************************************************
 
-egen strata = group(site)
+egen strata = group(site23)
 
 levelsof strata, local(levels_strata)
 

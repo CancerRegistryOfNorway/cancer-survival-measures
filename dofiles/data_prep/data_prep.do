@@ -13,7 +13,7 @@ do "`data_prep'/define_follow_up_and_merge_reference_mortality.do"
 
 //Loop over each strata and generate spline variables for age
 
-do "`data_prep'/define_age_splines_per_site.do"
+do "`data_prep'/define_age_splines_per_site.do" /* Returns levels_strata */
 
 ********************************************************************************
 
