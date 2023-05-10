@@ -1,5 +1,5 @@
 
-args site_group
+args site_group age
 
 scalar at_site_groups = at_site_group_`site_group'
 
@@ -92,7 +92,8 @@ foreach sex of numlist 0/1 {
 			sort mark
 			replace crc5yr_sex`sex'_stage`stage'_cond`k' = crc5yr_sex`sex'_stage`stage'_cond`k'[1]	
 			replace cro5yr_sex`sex'_stage`stage'_cond`k' = cro5yr_sex`sex'_stage`stage'_cond`k'[1]	
-	}	
-}
+		}	
+	}
 
+}
 ********************************************************************************

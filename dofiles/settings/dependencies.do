@@ -1,5 +1,5 @@
 
 * DEPENDENCIES:
 
-which sysresources
-findfile sysresources.jar 
+//which sysresources
+//findfile sysresources.jar 

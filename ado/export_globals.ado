@@ -7,7 +7,7 @@ capture confirm file "`newfilename'"
 
 if ( _rc == 0 ) {
       
-  capt noisily erase "$root/dofiles/`newfilename'"       
+  capt noisily erase "`newfilename'"       
 } 
 
 local endmata end // trick

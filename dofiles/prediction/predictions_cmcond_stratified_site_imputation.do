@@ -10,7 +10,7 @@ clear
 local defdir "$root/dofiles/prediction/stage_contrast_definitions"
 include "`defdir'/define_stage_at_by_site_group_scalars.do" 
 
-run "$root/dofiles/definitions/model/global_knotlists.do"
+run "$root/dofiles/estimation/definitions/models/global_knotlists.do"
 		
 ********************************************************************************							  
 
@@ -60,7 +60,7 @@ foreach site of numlist $siteList {
 		est use "`sterfile'"	
 		est replay
 
-		use "$root/results/analysisfile_imputed.dta", clear 
+		use "$root/data/datafile.dta", clear 
 
 		mi extract `i', clear
 
@@ -75,7 +75,7 @@ foreach site of numlist $siteList {
 			
 			preserve
 			
-				use "$root/prediction/tempfiles/Ryear_period_df`df'_strata`strata'.dta", clear				
+				use "$root/results/prediction/tempfiles/Ryear_df`df'_strata`strata'.dta", clear				
 				mkmat c?, matrix(Ryear`df')
 				
 			restore
@@ -90,7 +90,7 @@ foreach site of numlist $siteList {
 		rcsgen, scalar(`age') gen(e) ///
 			knots(${knotslist_period_df2_strata`strata'}) rmatrix(Ryear2)
 	
-		do "$root/dofiles/prediction/stpm2cmcond.do" `site_group'
+		do "$root/dofiles/prediction/stpm2cmcond.do" `site_group' `age'
 
 		keep if _n == 1
 		keep crc* cro*

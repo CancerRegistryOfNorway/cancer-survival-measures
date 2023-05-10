@@ -11,7 +11,7 @@ clear
 
 ********************************************************************************
 
-global root "H:/Prosjekter/Tor Åge Myklebust/CIN2021-SI/Artikkel 1/cancer-survival-measures/"
+global root "H:/cancer-survival-measures/"
 				
 do "$root/dofiles/settings/dependencies.do"				
 				
@@ -21,7 +21,7 @@ include "$root/dofiles/settings/global_definitions.do"
 
 // Data-management
 
-// do "$root/dofiles/data_prep/data_prep_internal.do" 
+//do "$root/dofiles/data_prep/data_prep_internal.do" 
 do "$root/dofiles/data_prep/data_prep.do" 
 
 // Run model-selection algorithm to estimate FP-models

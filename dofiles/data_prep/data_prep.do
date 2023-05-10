@@ -1,4 +1,5 @@
 
+use "P:\Registeravdelingen\CIN-2021-SI\data\cin\CIN_surv_2021_prepped", clear
 ********************************************************************************
 
 local data_prep "$root\dofiles\data_prep"
