@@ -40,7 +40,7 @@ foreach site of numlist $siteList {
 			
 	forvalues i=1(1)$N_imputations {
 
-		use "$root/results/estimation/tempfiles/models_converged.dta", clear
+		use "$root/results/estimation/models_converged.dta", clear
 
 		split modelname, p("_") gen(m)
 		replace m2 = usubinstr(m2,"site","",.) 

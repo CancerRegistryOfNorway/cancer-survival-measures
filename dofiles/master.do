@@ -25,7 +25,7 @@ include "$root/dofiles/settings/global_definitions.do"
 do "$root/dofiles/data_prep/data_prep.do" 
 
 // Run model-selection algorithm to estimate FP-models
-do "$root/dofiles/estimation.do"  
+do "$root/dofiles/estimation/estimation.do"  
 
 // Predict net survival, crude probabilities and lifeyears lost by subgroups
 // Code starts multiple parallell Stata-sessions to reduce computation time

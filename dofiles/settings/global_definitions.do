@@ -20,7 +20,7 @@ global adjusted_lifetable "$root\lifetables\CRN_lifetable_Norway_2021_national_g
 global seed 76984
 
 //global siteList "1(1)23"
-global siteList "11"
+global siteList "19"
 global lastYear = 2021
 global censoring_date = d(31dec$lastYear)
 global stsetEnter = "d(1jan2017)"

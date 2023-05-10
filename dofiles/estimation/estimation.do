@@ -9,24 +9,44 @@ frame create modelres ///
 	str100 modelname str1000 cmdline convergence strL sterfilename imputation
 
 //Specifying stage-groups
-include "$root/dofiles/estimation/definitions/stagegroup_def.do" 
+include "$root/dofiles/estimation/definitions/models/stagegroup_def.do" 
 
 //Specifying different interaction terms
-include "$root/dofiles/estimation/definitions/interaction_variants.do" 
+include "$root/dofiles/estimation/definitions/models/interaction_variants.do" 
 
 local n_cat : word count \`stageVariant\`group''
 local last_stage : word `n_cat' of \`stageVariant\`group''
 
 //Specify model variants
-include "$root/dofiles/estimation/definitions/model_variants.do" 
+include "$root/dofiles/estimation/definitions/models/model_variants.do" 
 
 mata: st_local("N_variant", ///
 	strofreal(rows(st_dir("local", "macro", "variant*" ))))
 	
 global N_variants = `N_variant'
-	
-foreach group of numlist 1(1)`N_stageGroup' { 
 
+if ( "$siteList" != "1(1)23" ) local N_stageGroup = 1	
+
+foreach group of numlist 1(1)`N_stageGroup' { 
+	
+	if ( "$siteList" != "1(1)23" ) {
+	
+		local temp = 0
+		
+		foreach tempGroup of numlist 1 2 3 4 {
+			
+			foreach tempSite of numlist `stageGroup`tempGroup'' {
+				
+				if ( `tempSite' == $siteList ) {
+					
+					local temp = `tempSite'
+					local group = `tempGroup'
+					local stageGroup`group' `temp'
+				} 
+			}
+		}
+	}
+	
 	foreach site of numlist `stageGroup`group'' {
 						
 		if inrange(`site',11,16) {	
