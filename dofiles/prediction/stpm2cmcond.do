@@ -22,6 +22,8 @@ else if(`site_group' == 2) {
 	local stage_group "4 5 6 7"
 
 	include "`defdir'/define_at_site_group`site_group'.do" 
+	
+	ma list 
 }
 
 ********************************************************************************

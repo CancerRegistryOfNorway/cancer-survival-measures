@@ -7,7 +7,7 @@ clear
 
 // Define indicators for stage and at-arguments for models
 
-local defdir "$root/dofiles/predictions/stage_contrast_definitions"
+local defdir "$root/dofiles/prediction/stage_contrast_definitions"
 include "`defdir'/define_stage_at_by_site_group_scalars.do" 
 
 run "$root/dofiles/definitions/model/global_knotlists.do"
