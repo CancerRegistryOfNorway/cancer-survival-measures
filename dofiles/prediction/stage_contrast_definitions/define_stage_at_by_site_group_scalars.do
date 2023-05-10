@@ -7,8 +7,6 @@
 								  1, 0 \ 
 								  0, 1 
 	;
-
-	//Build at-argument for site_group_1
 								  
 	scalar at_site_group_1 =
 	trim(itrim(	  
@@ -21,15 +19,11 @@
 	))
 	;
 
-	********************************************************************************
-
 	mat def stages_site_group_2 = 0, 0, 0 \ 
 								  1, 0, 0 \ 
 								  0, 1, 0 \ 
 								  0, 0, 1
 	;
-
-	//Build at-argument for site_group_2
 
 	scalar at_site_group_2 =
 	trim(itrim(
@@ -41,13 +35,9 @@
 		\`at\`level''
 	"
 	))
-	;
+	;				  
 
-	********************************************************************************						  
-
-	mat def stages_site_group_3 = 0 \ 1 ;
-
-	//Build at-argument for site_group_3						  
+	mat def stages_site_group_3 = 0 \ 1 ;			  
 															  
 	scalar at_site_group_3 = 
 	trim(itrim(			  
@@ -59,8 +49,6 @@
 	"
 	))						  	
 	;
-
-	//Build at-argument for site_group_4
 
 	scalar at_site_group_4 = trim(itrim("sex \`sex' \`at'")) ;
 
