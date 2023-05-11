@@ -71,7 +71,7 @@ foreach group of numlist 1(1)`N_stageGroup' {
 				
 				local modelname m_site`site'_variant`n'
 				
-				mata: mata clear 
+				constraint drop _all 
 				
 				capt noisily `variant`n''
 		
