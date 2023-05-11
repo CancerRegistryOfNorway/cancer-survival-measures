@@ -70,7 +70,9 @@ foreach group of numlist 1(1)`N_stageGroup' {
 				est clear
 				
 				local modelname m_site`site'_variant`n'
-							
+				
+				mata: mata clear 
+				
 				capt noisily `variant`n''
 		
 				if ( _rc == 0 ) & e(converged) == 1 {

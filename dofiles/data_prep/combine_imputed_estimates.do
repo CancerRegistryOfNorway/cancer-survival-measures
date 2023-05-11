@@ -53,8 +53,8 @@ capt drop *_lci *_uci
 keep site23 temptime netsurv* crude* imputation
 capt drop *cond*
 
-rename crude_sex?_stage?_agr?_disease crude_sex?_stage?_agr?_dis
-rename crude_sex?_stage??_agr?_disease crude_sex?_stage??_agr?_dis
+capt rename crude_sex?_stage?_agr?_disease crude_sex?_stage?_agr?_dis
+capt rename crude_sex?_stage??_agr?_disease crude_sex?_stage??_agr?_dis
 
 foreach v of varlist netsurv* crude* {
 	

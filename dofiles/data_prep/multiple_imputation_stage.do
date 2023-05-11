@@ -7,7 +7,7 @@ args levels_strata
 
 gen period_temp = ( _t0 == 0 ) 
 
-forvalues i = $siteList {
+forvalues i = 1(1)23 {
 
 	preserve
 
@@ -31,7 +31,7 @@ forvalues i = $siteList {
 
 clear 
 
-forvalues i=$siteList {
+forvalues i=1(1)23 {
 	
 	append using `f`i''
 }

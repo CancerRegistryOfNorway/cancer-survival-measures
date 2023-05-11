@@ -7,11 +7,11 @@ which sysresources
 findfile sysresources.jar  
 
 cd "$root/results/log"
- 
+
 local dofile "$root/dofiles/prediction/predict.do"
 
 confirm file $StataExe
-confirm file `dofile'
+confirm file "`dofile'"
 
 assert $N_imputations > 0
 

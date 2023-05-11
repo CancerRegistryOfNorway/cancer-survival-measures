@@ -114,6 +114,6 @@ foreach site of numlist $siteList {
 }
 
 compress
-save "$root/results/tempfiles/predictions_stpm2cmcond.dta", replace	
+save "$root/results/prediction/tempfiles/predictions_stpm2cmcond.dta", replace	
 
 ********************************************************************************	

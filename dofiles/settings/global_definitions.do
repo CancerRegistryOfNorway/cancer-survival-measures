@@ -11,16 +11,16 @@ adopath ++ "$root/ado/" /*stpm2cmcond , sysresources */
 
 ********************************************************************************
 
-//global StataExe R:\Stata17\StataMP-64.exe
-global StataExe S:\Prog64\Stata\Stata17MP\StataMP-64.exe
+global StataExe R:\Stata17\StataMP-64.exe
+//global StataExe S:\Prog64\Stata\Stata17MP\StataMP-64.exe
 global adjusted_lifetable "$root\lifetables\CRN_lifetable_Norway_2021_national_general_population_calibrated"
 
 ********************************************************************************
 
 global seed 76984
 
-//global siteList "1(1)23"
-global siteList "19"
+global siteList "1(1)23"
+//global siteList "4"
 global lastYear = 2021
 global censoring_date = d(31dec$lastYear)
 global stsetEnter = "d(1jan2017)"

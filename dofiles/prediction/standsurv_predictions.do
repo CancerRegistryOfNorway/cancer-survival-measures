@@ -29,7 +29,7 @@ else if `variant' == 22 {
 }
 
 preserve
-use "$root\matrices\Ryear_period_df`df'_strata`strata'", clear				
+use "$root\results\prediction\tempfiles\Ryear_df`df'_strata`strata'", clear				
 mkmat c?, matrix(Ryear)
 restore
 rcsgen, scalar(`age') gen(c) knots(${knotslist_period_df`df'_strata`strata'}) rmatrix(Ryear)
@@ -52,12 +52,12 @@ gen merk = 1 if !mi(PERSONLOEPENR)
 standsurv if merk == 1, at1(.) timevar(temptime) verbose	atvars(netsurv_all) /*se*/
 
 //Crude probabilities for all patients combined
-capt noisily standsurv if merk == 1, at1(.) crudeprob timevar(temptime) verbose atvars(crude_all) /*se*/ expsurv(using(${lifetable}) agediag(age) datediag(diag_date) pmage(_age) pmyear(_year) pmother(sex loc_pca) pmrate(rate_lt) pmmaxage(99) ///
-pmmaxyear(${endyear}) )
+capt noisily standsurv if merk == 1, at1(.) crudeprob timevar(temptime) verbose atvars(crude_all) /*se*/ expsurv(using(${adjusted_lifetable}) agediag(age) datediag(diag_date) pmage(_age) pmyear(_year) pmother(sex adjusted_lifetable) pmrate(rate_lt) pmmaxage(99) ///
+pmmaxyear(${lastYear}) )
 
 //Expected remaining lifetime for all patients combined
-standsurv if merk == 1, at1(.) rmst timevar(t80) atvar(obslifeexp_all) /*se*/ expsurv(using(${lifetable}) agediag(age) datediag(diag_date) pmage(_age) pmyear(_year) pmother(sex loc_pca) pmrate(rate_lt) pmmaxage(99) ///
-pmmaxyear(${endyear}) expsurvvars(explifeexp_all))
+standsurv if merk == 1, at1(.) rmst timevar(t80) atvar(obslifeexp_all) /*se*/ expsurv(using(${adjusted_lifetable}) agediag(age) datediag(diag_date) pmage(_age) pmyear(_year) pmother(sex adjusted_lifetable) pmrate(rate_lt) pmmaxage(99) ///
+pmmaxyear(${lastYear}) expsurvvars(explifeexp_all))
 
 levelsof sex, local(levels_sex)
 levelsof stage, local(levels_stage)
@@ -82,10 +82,10 @@ foreach sex of local levels_sex {
 				standsurv if sex == `sex' & stage == `stage' & agr == `agr', at1(.) timevar(temptime) verbose atvars(netsurv_sex`sex'_stage`stage'_agr`agr') /*se*/
 				
 				capt noisily standsurv if sex == `sex' & stage == `stage' & agr == `agr', at1(.) crudeprob timevar(temptime) verbose atvars(crude_sex`sex'_stage`stage'_agr`agr') /*se*/ ///
-				expsurv(using(${lifetable}) agediag(age) datediag(diag_date) pmage(_age) pmyear(_year) pmother(sex loc_pca) pmrate(rate_lt) pmmaxage(99) pmmaxyear(${endyear}) )
+				expsurv(using(${adjusted_lifetable}) agediag(age) datediag(diag_date) pmage(_age) pmyear(_year) pmother(sex adjusted_lifetable) pmrate(rate_lt) pmmaxage(99) pmmaxyear(${lastYear}) )
 				
 				capt noisily standsurv if sex == `sex' & stage == `stage' & agr == `agr', at1(.) rmst timevar(t80) atvar(obslifeexp_sex`sex'_stage`stage'_agr`agr') /*se*/ ///
-				expsurv(using(${lifetable}) agediag(age) datediag(diag_date) pmage(_age) pmyear(_year) pmother(sex loc_pca) pmrate(rate_lt) pmmaxage(99) pmmaxyear(${endyear}) expsurvvars(explifeexp_sex`sex'_stage`stage'_agr`agr')) 
+				expsurv(using(${adjusted_lifetable}) agediag(age) datediag(diag_date) pmage(_age) pmyear(_year) pmother(sex adjusted_lifetable) pmrate(rate_lt) pmmaxage(99) pmmaxyear(${lastYear}) expsurvvars(explifeexp_sex`sex'_stage`stage'_agr`agr')) 
 		
 			}
 	}
@@ -104,7 +104,7 @@ foreach sex of local levels_sex {
 		capt drop s80exp
 		
 		capt standsurv if sex == `sex' & stage == `stage' & inrange(age,`=`age'-2',`=`age'+2'), surv at1(.) timevar(tt) atvar(s80) /*ci*/ ///
-		expsurv(using(${lifetable}) agediag(age_median) datediag(diag_date) pmage(_age) pmyear(_year) pmother(sex loc_pca) pmrate(rate_lt) pmmaxage(99) pmmaxyear(${endyear}) expsurvvars(s80exp) ) 
+		expsurv(using(${adjusted_lifetable}) agediag(age_median) datediag(diag_date) pmage(_age) pmyear(_year) pmother(sex adjusted_lifetable) pmrate(rate_lt) pmmaxage(99) pmmaxyear(${lastYear}) expsurvvars(s80exp) ) 
 		
 		forvalues k = 0(1)5 {
 			

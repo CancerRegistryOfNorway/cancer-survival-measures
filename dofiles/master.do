@@ -11,8 +11,9 @@ clear
 
 ********************************************************************************
 
-global root "H:/cancer-survival-measures/"
+//global root "H:/cancer-survival-measures/"
 				
+global root "H:\tamy\My Documents\cancer-survival-measures"
 do "$root/dofiles/settings/dependencies.do"				
 				
 include "$root/dofiles/settings/global_definitions.do"

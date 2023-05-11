@@ -67,6 +67,3 @@ global knotslist_period_df2_strata4 46 71 86
 global knotslist_period_df2_strata3 44 70 86
 global knotslist_period_df2_strata2 48 69 85
 global knotslist_period_df2_strata1 40 64 83
-global knotslist3 1965 1980 2000 2021
-global knotslist4 1965 1980 2000 2010 2021
-global knotslist5 1965 1975 1990 2000 2010 2021

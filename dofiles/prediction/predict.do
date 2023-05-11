@@ -21,14 +21,14 @@ log using ./log/site_`site'_ProcessId_`ProcessId'_ra.log , ///
 
 ********************************************************************************
 
-global root "H:\CIN-SI"
+global root "H:\tamy\My Documents\cancer-survival-measures"
 
-include "$root\dofiles\global_definitions.do"
-include "$root\dofiles\global_knotlists.do"
+include "$root\dofiles\settings\global_definitions.do"
+include "$root\dofiles\estimation\definitions\models\global_knotlists.do"
 
 ********************************************************************************
 
-use "$root\est_results\models_converged", clear
+use "$root\results\estimation\models_converged", clear
 
 split modelname, p("_") gen(m)
 replace m2 = usubinstr(m2,"site","",.) 
@@ -47,22 +47,22 @@ est replay
 su variant if site == `site' & imputation == `i'
 local variant `r(mean)'
 	
-use "$root\dta\analysisfile_imputed.dta", clear 
+use "$root\data\datafile.dta", clear 
 
 keep if site23 == `site'
 
 mi extract `i', clear
 
 //Generate predictions using standsurv
-include "$root\dofiles\standsurv_predictions.do" 
+include "$root\dofiles\prediction\standsurv_predictions.do" 
 
 keep if !mi(temptime)
 
-keep site23 temptime t80 netsurv*  crude* obslifeexp* explifeexp* Tcro* Tcrc* 	
+keep site23 temptime t80 netsurv*  crude* obslifeexp* explifeexp* 	
 				
 gen imputation = `i'
 
-save "$root\tempfiles\predictions_site`site'_imputation`i'", replace		
+save "$root\results\prediction\tempfiles\predictions_site`site'_imputation`i'", replace		
 
 ********************************************************************************
 
