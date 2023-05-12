@@ -43,7 +43,7 @@ see https://gitlab.kreftregisteret.no/tamy/cancer-survival-measures/-/tree/maste
 
 ## *Embarrassingly parallel* computing of predictions
 
-The code will split jobs and start as many Stata sessions on the local machine as possible restricted by available system resources
+The code will split jobs and start as many Stata sessions on the local machine as possible, restricted by available system resources
 
 see https://gitlab.kreftregisteret.no/tamy/cancer-survival-measures/-/blob/master/dofiles/prediction/parallell_sessions.do
 
