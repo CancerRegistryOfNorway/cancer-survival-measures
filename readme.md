@@ -25,3 +25,12 @@ To validate that the code reproduces the results used in CIN Special Issue 2021 
 ## Dependencies 
 
 see https://gitlab.kreftregisteret.no/tamy/cancer-survival-measures/-/tree/master/ado
+
+## Parallel computing of predictions
+
+The code will split jobs and start new Stata sessions if available system resources
+
+see https://gitlab.kreftregisteret.no/tamy/cancer-survival-measures/-/blob/master/dofiles/prediction/parallell_sessions.do
+
+
+
