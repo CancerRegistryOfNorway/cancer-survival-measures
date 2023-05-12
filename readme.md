@@ -10,14 +10,21 @@ For each cancer site model selection is done by iterating down a pre-specified l
 
 Measures are then predicted from the chosen models.
 
-## Organisation of files
-Files are organised depending on their purpose: 
+## Organisation of project
+
+https://gitlab.kreftregisteret.no/tamy/cancer-survival-measures/-/blob/master/dofiles/master.do
+
+### Command files are organised depending on their purpose: 
 
 * data preparation
 * estimation
-* prediction 
+* prediction
 
-see https://gitlab.kreftregisteret.no/tamy/cancer-survival-measures/-/blob/master/dofiles/master.do#L23-39
+
+### Result files
+
+https://gitlab.kreftregisteret.no/tamy/cancer-survival-measures/-/tree/master/results
+
 
 ## Validation
 To validate that the code reproduces the results used in CIN Special Issue 2021 we compare result datasets from different runs of code... 
