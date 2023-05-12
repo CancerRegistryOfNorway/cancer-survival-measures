@@ -21,8 +21,8 @@ log using ./log/site_`site'_ProcessId_`ProcessId'_ra.log , ///
 
 ********************************************************************************
 
-global root "H:\tamy\My Documents\cancer-survival-measures"
-
+//global root "H:\tamy\My Documents\cancer-survival-measures"
+global root "H:/cancer-survival-measures/"
 include "$root\dofiles\settings\global_definitions.do"
 include "$root\dofiles\estimation\definitions\models\global_knotlists.do"
 

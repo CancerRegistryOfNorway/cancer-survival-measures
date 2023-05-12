@@ -44,7 +44,6 @@
 	"
 		sex \`sex' \`at'
 		stage3_2 \`=stages_site_group_3[\`level', 1]' 
-		stage3_2 \`=stages_site_group_3[\`level', 2]' 
 		\`at\`level''
 	"
 	))						  	
