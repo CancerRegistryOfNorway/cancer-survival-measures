@@ -16,6 +16,8 @@ For each cancer site model selection is done by iterating down a pre-specified l
 
 Measures are then predicted from the chosen models.
 
+For more detailed description of methods see [*Statistical analyses* page S10](https://www.kreftregisteret.no/globalassets/cancer-in-norway/2021/cin2021si_202206072217.pdf) 
+
 ## Organisation of project
 
 https://gitlab.kreftregisteret.no/tamy/cancer-survival-measures/-/blob/master/dofiles/master.do
