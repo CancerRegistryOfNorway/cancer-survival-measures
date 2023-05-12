@@ -41,7 +41,7 @@ To validate that the code reproduces the results used in CIN Special Issue 2021 
 
 see https://gitlab.kreftregisteret.no/tamy/cancer-survival-measures/-/tree/master/ado
 
-## [Embarrassingly Parallel](https://en.wikipedia.org/wiki/Embarrassingly_parallel) computing of predictions
+## Embarrassingly parallel computing of predictions
 
 The code will split jobs and start as many Stata sessions on the local machine as possible restricted by available system resources
 
