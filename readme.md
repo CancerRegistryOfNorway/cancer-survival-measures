@@ -6,7 +6,7 @@ Documentation of code used for generating results underlying the graphs presente
 ## Introduction
 Cancer in Norway Special Issue 2021 focuses on calculating and presenting a range of different measures that are useful for improving communication of cancer patient survival. This work uses flexible parametric relative survival models, which are estimated for 23 different cancer sites. 
 
-For each site model selection is done by iterating down a pre-specified list of models and choosing the firts model that converges on the relevant data. 
+For each cancer site model selection is done by iterating down a pre-specified list of models and choosing the first model that converges on the relevant data. 
 
 Measures are then predicted from the chosen models.
 
