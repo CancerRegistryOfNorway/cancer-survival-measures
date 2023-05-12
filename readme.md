@@ -9,4 +9,5 @@ Documentation of code used for ...
 
 ## Validation
 
+https://gitlab.kreftregisteret.no/tamy/cancer-survival-measures/-/blob/master/dofiles/estimation/estimation.do#L23-25
 
