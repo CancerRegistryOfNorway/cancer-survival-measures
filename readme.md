@@ -11,3 +11,7 @@ Files are organised depending on their purpose; data prepping, estimation and re
 
 ## Validation
 To validate that the code reproduces the results used in CIN Special Issue 2021 we compare result datasets from different runs of code... 
+
+## Dependencies 
+
+see https://gitlab.kreftregisteret.no/tamy/cancer-survival-measures/-/tree/master/ado
