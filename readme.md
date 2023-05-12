@@ -13,7 +13,7 @@ Files are organised depending on their purpose:
 * estimation
 * prediction 
 
-see https://gitlab.kreftregisteret.no/tamy/cancer-survival-measures/-/blob/master/dofiles/master.do#L23
+see https://gitlab.kreftregisteret.no/tamy/cancer-survival-measures/-/blob/master/dofiles/master.do#L23-39
 
 ## Validation
 To validate that the code reproduces the results used in CIN Special Issue 2021 we compare result datasets from different runs of code... 
