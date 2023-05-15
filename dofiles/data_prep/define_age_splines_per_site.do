@@ -9,14 +9,14 @@ c_local levels_strata `levels_strata' // Export local to caller
 
 forvalues i = 1(1)4 {
 	
-	gen rcs4_age`i' = .
+	gen double rcs4_age`i' = .
 	
 	if `i' <= 3 {
-		gen rcs3_age`i' = . 
+		gen double rcs3_age`i' = . 
 	}
 	
 	if `i' <= 2 {
-		gen rcs2_age`i' = . 
+		gen double rcs2_age`i' = . 
 	}
 }
 
@@ -41,3 +41,7 @@ foreach df of numlist 2/4 {
 }
 
 ********************************************************************************
+
+foreach v of varlist rcs* {
+	_recast float `v'
+}
