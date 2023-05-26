@@ -21,7 +21,8 @@ do "`data_prep'/define_age_splines_per_site.do" /* Returns levels_strata */
 
 //Perform multiple imputation on stage
 
-sort PERSONLOEPENR site23, stable 
+isid PERSONLOEPENR site23
+sort PERSONLOEPENR site23 
 
 do "`data_prep'/multiple_imputation_stage.do" `levels_strata'
 
