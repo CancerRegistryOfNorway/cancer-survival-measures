@@ -35,14 +35,14 @@ For more detailed description of methods see [*Statistical analyses* page S10](h
 [/results](/results)
 
 ## Validation
-To validate that the code reproduces the results used in CIN Special Issue 2021 we compare result datasets from different runs of code... 
+To validate that the code reproduces the results used in CIN Special Issue 2021 we compare result datasets from different runs of code.
 
 ## Dependencies 
 
 * all code dependecies are included in [/ado](/ado)
 * dependencies asserts will be added
 * real data : cancer data and life-tables must be provied by user
-* test data: will be included?
+* test data: (will be included)
 
 ## *Embarrassingly parallel* computing of predictions
 
