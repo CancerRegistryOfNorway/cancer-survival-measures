@@ -17,12 +17,11 @@ do "`data_prep'/define_follow_up_and_merge_reference_mortality.do"
 
 do "`data_prep'/define_age_splines_per_site.do" /* Returns levels_strata */
 
-
 ********************************************************************************
 
 //Perform multiple imputation on stage
 
-sort SYKDOMSTILFELLENR 
+sort PERSONLOEPENR site23, stable 
 
 do "`data_prep'/multiple_imputation_stage.do" `levels_strata'
 
@@ -33,11 +32,6 @@ do "`data_prep'/multiple_imputation_stage.do" `levels_strata'
 label data "Data prepared for analysis, including data imputed on stage"
 save "$root\data\datafile.dta", replace
 
-/*
-datasignature clear 
-datasignature set 
-exit 
-*/
 ********************************************************************************
 
 //Save matrices for different Stata sessions
