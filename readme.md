@@ -59,10 +59,7 @@ For identical data the code will reproduce results exactly depending on:
 1. Setting the same seed at start of analysis.
 1. Sorting order of observations: 
     1. Using stable sort, because sorting is randomized for tied values. Especially, for any *bysort* command *[catvars]* and *(sortvars)* should identify the observations. 
-    1. Before *mi impute* the sort order of *observations* must be identical between repeated analysis because the same sequence of random numbers will potentially correspond to different observations during the computation of imputed values. 
-1. When using *rcsgen* with the option *orthog* the returned variables must be recast from double to float due to rounding errors. (This reflect the functionallity of the *rcsgen* version 1.5.9 13FEB2022 used in the analysis.)
+    1. Before *mi impute* the sort order of *observations* must be identical between repeated analysis because the same sequence of random numbers will potentially correspond to different observations during the computation of imputed values. (See [data_prep.do#L24-L25](https://github.com/CancerRegistryOfNorway/cancer-survival-measures/blob/74c9d58b517d7b97b38b6f9aab8fb20c90310991/dofiles/data_prep/data_prep.do#L24-L25))
 
 
-
-
- 
+1. When using *rcsgen* with the option *orthog* the returned variables must be recast from double to float due to rounding errors. This reflect the functionallity of the *rcsgen* version 1.5.9 13FEB2022 used in the analysis. (See [define_age_splines_per_site.do#L45-L47](https://github.com/CancerRegistryOfNorway/cancer-survival-measures/blob/29126d3a8cc55db99219898e2a76ef52e526b83f/dofiles/data_prep/define_age_splines_per_site.do#L45-L47)) 
