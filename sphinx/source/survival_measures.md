@@ -15,7 +15,7 @@ TÅ Myklebust, B Aagnes, Y Nilssen, ALV Johansson, MJ Rutherford, TML Andersson,
 B Møller, PW Dickman. *[Cancer survival in Norway 1965–2021: Extending standard reporting to improve
 communication of survival statistics. Oslo: Cancer Registry of Norway, 2022.](https://www.kreftregisteret.no/globalassets/cancer-in-norway/2021/cin2021si_202206072217.pdf)*
 
-Specific questions on details of this Special Issue may be sent to CIN2021survival@kreftregisteret.no
+Specific questions on details of this Special Issue may be sent to <CIN2021survival@kreftregisteret.no>
 
 ## British Journal of Cancer 2023
 
