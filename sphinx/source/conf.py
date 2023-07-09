@@ -34,11 +34,19 @@ github_repository = 'https://github.com/CancerRegistryOfNorway/cancer-survival-m
 # ones.
 
 extensions = [
+    'myst_parser',
+    'sphinx_design',
     'sphinx_toolbox',
     'sphinx.ext.viewcode',
     'sphinx_tabs.tabs',
     'sphinx-prompt',
     'sphinx_toolbox'
+    ]
+
+source_suffix = ['.md']
+
+myst_enable_extensions  = [
+    'colon_fence'
     ]
 
 # Add any paths that contain templates here, relative to this directory.

@@ -13,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="_static/css/sphinx-toolbox.css" />
     <link rel="stylesheet" type="text/css" href="_static/tabs.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx_toolbox_installation.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?digest=30d1aed668e5c3a91c3e3bf6a60b675221979f0e" />
     
     
@@ -202,28 +203,34 @@ various survival measures.</p>
 <p><strong>Cancer survival in Norway 1965–2021: Extending standard reporting to improve
 communication of survival statistics</strong></p>
 <p>TÅ Myklebust, B Aagnes, Y Nilssen, ALV Johansson, MJ Rutherford, TML Andersson, PC Lambert,
-B Møller, PW Dickman. [Cancer survival in Norway 1965–2021: Extending standard reporting to improve
-communication of survival statistics. Oslo: Cancer Registry of Norway, 2022.](<a class="reference external" href="https://www.kreftregisteret.no/globalassets/cancer-in-norway/2021/cin2021si_202206072217.pdf">https://www.kreftregisteret.no/globalassets/cancer-in-norway/2021/cin2021si_202206072217.pdf</a>)</p>
-<p>Specific questions on details of this Special Issue may be sent to <a class="reference external" href="mailto:CIN2021survival&#37;&#52;&#48;kreftregisteret&#46;no">CIN2021survival<span>&#64;</span>kreftregisteret<span>&#46;</span>no</a></p>
+B Møller, PW Dickman. <a class="reference external" href="https://www.kreftregisteret.no/globalassets/cancer-in-norway/2021/cin2021si_202206072217.pdf">Cancer survival in Norway 1965–2021: Extending standard reporting to improve
+communication of survival statistics. Oslo: Cancer Registry of Norway, 2022.</a></p>
+<p>Specific questions on details of this Special Issue may be sent to CIN2021survival&#64;kreftregisteret.no</p>
 </section>
 <section id="british-journal-of-cancer-2023">
 <h2>British Journal of Cancer 2023<a class="headerlink" href="#british-journal-of-cancer-2023" title="Permalink to this heading">#</a></h2>
 <p><strong>Improving communication of cancer survival statistics – Feasibility of implementing model-based algorithms in routine publications</strong></p>
 <p>Accepted for publication in British Journal of Cancer.</p>
 <p>Tor Åge Myklebust, Bjarte Aagnes, Yngvar Nilssen, Mark Rutherford3, Paul C Lambert3,5, Therese ML Andersson5, Anna LV Johansson, Paul W Dickman, Bjørn Møller
-[Improving communication of cancer survival statistics – Feasibility of implementing model-based algorithms in routine publications](TBA)</p>
-<p>Corresponding author: Tor Åge Myklebust &lt;<a class="reference external" href="mailto:tamy&#37;&#52;&#48;kreftregisteret&#46;no">tamy<span>&#64;</span>kreftregisteret<span>&#46;</span>no</a>&gt;</p>
+<span class="xref myst">Improving communication of cancer survival statistics – Feasibility of implementing model-based algorithms in routine publications</span></p>
+<p>Corresponding author: Tor Åge Myklebust <a class="reference external" href="mailto:tamy&#37;&#52;&#48;kreftregisteret&#46;no">tamy<span>&#64;</span>kreftregisteret<span>&#46;</span>no</a></p>
 </section>
 <section id="source-code">
 <h2>Source code<a class="headerlink" href="#source-code" title="Permalink to this heading">#</a></h2>
-<p>Source code for the special issue report is available at <a class="reference external" href="https://github.com/CancerRegistryOfNorway/cancer-survival-measures">https://github.com/CancerRegistryOfNorway/cancer-survival-measures</a></p>
+<p>Source code for the special issue report is available at https://github.com/CancerRegistryOfNorway/cancer-survival-measures</p>
 </section>
 <section id="example-code">
 <h2>Example code<a class="headerlink" href="#example-code" title="Permalink to this heading">#</a></h2>
 <p>The Stata code used in the special issue and BJC article used the Stata program stpm2.
-Below is a small example using stpm3. The new program make predictions easier.</p>
-<details class="summary-stpm3-example">
-<summary>stpm3 example</summary><div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">clear</span> all
+Below is a small example using <a class="reference external" href="https://pclambert.net/software/stpm3/relative_survival_models/">stpm3</a>. The new program simplify predictions.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+stpm3 code example<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="highlight-stata notranslate"><div class="highlight"><pre><span></span><span class="k">clear</span> all
 
 <span class="k">use</span> <span class="s">&quot;https://pclambert.net/data/colon.dta&quot;</span>,<span class="k"> clear</span>
 
@@ -312,10 +319,11 @@ frame LE:<span class="k"> list</span> EXP?_st?
 frame LE5:<span class="k"> list</span> LE?_st?
 </pre></div>
 </div>
+</div>
 </details></section>
 <section id="synthetic-data">
 <h2>Synthetic data<a class="headerlink" href="#synthetic-data" title="Permalink to this heading">#</a></h2>
-<p>The original data are not available due to privacy legislation. Syntethic example data will be added Autumn 2023.</p>
+<p>The original data are not available due to privacy legislation. Syntethic example data will be added autumn 2023.</p>
 </section>
 </section>
 
@@ -381,5 +389,6 @@ frame LE5:<span class="k"> list</span> LE?_st?
     <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/scripts/furo.js"></script>
     <script src="_static/sphinx_toolbox_installation.js"></script>
+    <script src="_static/design-tabs.js"></script>
     </body>
 </html>
