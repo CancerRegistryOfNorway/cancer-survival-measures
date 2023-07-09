@@ -30,7 +30,7 @@ Corresponding author: Tor Åge Myklebust <tamy@kreftregisteret.no>
  
 ## Source code
 
-Source code for the special issue report is available at https://github.com/CancerRegistryOfNorway/cancer-survival-measures   
+Source code for the special issue report is available at <https://github.com/CancerRegistryOfNorway/cancer-survival-measures>   
 
 ## Example code
 
