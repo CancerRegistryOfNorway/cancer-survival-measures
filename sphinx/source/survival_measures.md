@@ -12,8 +12,8 @@ various survival measures.
 communication of survival statistics**
 
 TÅ Myklebust, B Aagnes, Y Nilssen, ALV Johansson, MJ Rutherford, TML Andersson, PC Lambert,
-B Møller, PW Dickman. [Cancer survival in Norway 1965–2021: Extending standard reporting to improve
-communication of survival statistics. Oslo: Cancer Registry of Norway, 2022.](https://www.kreftregisteret.no/globalassets/cancer-in-norway/2021/cin2021si_202206072217.pdf)
+B Møller, PW Dickman. *[Cancer survival in Norway 1965–2021: Extending standard reporting to improve
+communication of survival statistics. Oslo: Cancer Registry of Norway, 2022.](https://www.kreftregisteret.no/globalassets/cancer-in-norway/2021/cin2021si_202206072217.pdf)*
 
 Specific questions on details of this Special Issue may be sent to CIN2021survival@kreftregisteret.no
 
@@ -23,8 +23,8 @@ Specific questions on details of this Special Issue may be sent to CIN2021surviv
 
 Accepted for publication in British Journal of Cancer.
 
-Tor Åge Myklebust, Bjarte Aagnes, Yngvar Nilssen, Mark Rutherford3, Paul C Lambert3,5, Therese ML Andersson5, Anna LV Johansson, Paul W Dickman, Bjørn Møller
-[Improving communication of cancer survival statistics – Feasibility of implementing model-based algorithms in routine publications](TBA)
+*Tor Åge Myklebust, Bjarte Aagnes, Yngvar Nilssen, Mark Rutherford, Paul C Lambert, Therese ML Andersson, Anna LV Johansson, Paul W Dickman, Bjørn Møller
+[Improving communication of cancer survival statistics – Feasibility of implementing model-based algorithms in routine publications](TBA)*
 
 Corresponding author: Tor Åge Myklebust <tamy@kreftregisteret.no>
  
