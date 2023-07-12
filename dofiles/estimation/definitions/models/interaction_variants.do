@@ -1,0 +1,5 @@
+local interactionVariant1 stage1_2_rcs4_age1 stage1_2_rcs4_age2 stage1_2_rcs4_age3 stage1_2_rcs4_age4 stage1_3_rcs4_age1 stage1_3_rcs4_age2 stage1_3_rcs4_age3 stage1_3_rcs4_age4
+local interactionVariant2 stage2_2_rcs4_age1 stage2_2_rcs4_age2 stage2_2_rcs4_age3 stage2_2_rcs4_age4 stage2_3_rcs4_age1 stage2_3_rcs4_age2 stage2_3_rcs4_age3 stage2_3_rcs4_age4 stage2_4_rcs4_age1 stage2_4_rcs4_age2 ///
+ stage2_4_rcs4_age3 stage2_4_rcs4_age4
+local interactionVariant3 stage3_2_rcs4_age1 stage3_2_rcs4_age2 stage3_2_rcs4_age3 stage3_2_rcs4_age4
+local interactionVariant4 "" // Model without stage
